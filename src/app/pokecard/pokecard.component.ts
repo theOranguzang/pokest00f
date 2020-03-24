@@ -47,20 +47,19 @@ export class PokecardComponent implements OnInit {
 
   public detailShown: boolean = false
 
-  constructor(private pokeService: PokeService) {
-  }
+  constructor(private pokeService: PokeService) {}
 
   showHidePokeDetail() {
-    this.pokeService.getPoke(this.assetId+"").subscribe(pokedetail => {
+    this.pokeService.getPoke(this.assetId).subscribe(pokedetail => {
       this.pokeDetail = pokedetail;
     });
+
     this.detailShown = !this.detailShown;
   }
 
   ngOnInit(): void {
-    this.assetId = this.listItem.url.replace(`https://pokeapi.co/api/v2/pokemon/`,"");
-    this.assetId = this.assetId.replace(`/`,"");
-    this.assetLocalUrl = "assets/" + this.assetId + ".png"
+    this.assetId = this.listItem.url.replace('https://pokeapi.co/api/v2/pokemon/', '');
+    this.assetId = this.assetId.replace('/', '');
+    this.assetLocalUrl = `assets/${this.assetId}.png`;
   }
-
 }

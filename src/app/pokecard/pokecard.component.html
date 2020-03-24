@@ -1,6 +1,6 @@
 <div class="pokecard-flex-container">
   <img [src]="assetLocalUrl" alt="../../assets/substitute.png" (click)="showHidePokeDetail()">
-  <div [hidden]="detailShown">
+  <div *ngIf="detailShown">
     <div>
       {{ pokeDetail.name }}
     </div>
