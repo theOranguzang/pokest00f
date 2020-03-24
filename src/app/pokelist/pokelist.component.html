@@ -1,5 +1,3 @@
-<p>pokelist works!</p>
-
 <div *ngFor="let card of this.pokeList.results; index as i; first as isFirst" class="pokecards-flex-container">
   <!-- <li>{{ card.name }} {{ card.url }}</li> -->
   <div><pokecard [listItem]=card></pokecard></div>
