@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { tap, map } from 'rxjs/operators';
 
 import * as poke from './../models/poke';
 
@@ -11,7 +10,7 @@ import * as poke from './../models/poke';
 })
 export class PokeService {
 
-  private listPokeApiUrl = 'http://poke.co/api/v2/pokemon/';
+  private listPokeApiUrl = 'http://pokeapi.co/api/v2/pokemon/';
   private getPokeApiUrlBase = 'http://pokeapi.co/api/v2/pokemon/';
 
   constructor(
@@ -20,14 +19,17 @@ export class PokeService {
     //private pokeListAdapter: poke.PokeListAdapter
   ) { }
 
-  listPokes(offset?: 0, limit?: 10): Observable<poke.PokeList> {
+  listPokes(offset: number, limit: number): Observable<poke.PokeList> {
     return this.http.get<poke.PokeList>(this.listPokeApiUrl, { 
       params: { 
         offset: offset+'', 
         limit: limit+'' 
       }
-    })
-    .pipe(tap(pokelist => console.log(pokelist)),map((pokelist) => <poke.PokeList> pokelist),tap(pokelist => console.log(pokelist)))
+    });
+  }
+
+  getPoke(idString: string): Observable<poke.PokeDetail> {
+    return this.http.get<poke.PokeDetail>(this.getPokeApiUrlBase + idString);
   }
 
   // getPoke(idString: string): Observable<poke.PokeCard[]> {

@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Adapter } from './../models/adapter';
 
-import { map } from 'rxjs/operators';
-
 //==============================
 
 export type PokeList = {
-  stupid: number,
-  //count: number,
+  count: number,
   next: string,
   previous: string,
   results: PokeListItem[]
@@ -20,90 +17,90 @@ export type PokeListItem = {
 
 //==============================
 
-export type PokeCard = {
-  abilities: PokeCardAbility[],
+export type PokeDetail = {
+  abilities: PokeDetailAbility[],
   base_experience: number,
-  forms: PokeCardForm[],
-  game_indices: PokeCardGameIndex[],
+  forms: PokeDetailForm[],
+  game_indices: PokeDetailGameIndex[],
   height: number,
-  held_items: PokeCardHeldItem[],
+  held_items: PokeDetailHeldItem[],
   id: number,
   is_default: boolean,
   location_area_encounters: string,
-  moves: PokeCardMove[],
+  moves: PokeDetailMove[],
   name: string,
   order: number,
-  species: PokeCardSpecies,
-  sprites: PokeCardSprites,
-  stats: PokeCardStat[],
-  types: PokeCardType[],
+  species: PokeDetailSpecies,
+  sprites: PokeDetailSprites,
+  stats: PokeDetailStat[],
+  types: PokeDetailType[],
   weight: number
 }
 
 //==============================
 
-export type PokeCardAbility = {
-  ability: PokeCardNestedAbility,
+export type PokeDetailAbility = {
+  ability: PokeDetailNestedAbility,
   is_hidden: boolean,
   slot: number
 }
 
-export type PokeCardNestedAbility = {
+export type PokeDetailNestedAbility = {
   name: string,
   url: string
 }
 
-export type PokeCardForm = {
+export type PokeDetailForm = {
   name: string,
   url: string
 }
 
-export type PokeCardGameIndex = {
+export type PokeDetailGameIndex = {
   game_index: number,
-  version: PokeCardGameIndexVersion
+  version: PokeDetailGameIndexVersion
 }
 
-export type PokeCardGameIndexVersion = {
+export type PokeDetailGameIndexVersion = {
   name: string,
   url: string
 }
 
-export type PokeCardHeldItem = {
+export type PokeDetailHeldItem = {
   //TODO: investigate wtf this is
 }
 
-export type PokeCardMove = {
-  move: PokeCardNestedMove,
-  version_group_details: PokeCardMoveVersionGroupDetail[]
+export type PokeDetailMove = {
+  move: PokeDetailNestedMove,
+  version_group_details: PokeDetailMoveVersionGroupDetail[]
 }
 
-export type PokeCardNestedMove = {
+export type PokeDetailNestedMove = {
   name: string,
   url: string
 }
 
-export type PokeCardMoveVersionGroupDetail = {
+export type PokeDetailMoveVersionGroupDetail = {
   level_learned_at: number,
-  move_learn_method: PokeCardMoveVersionGroupDetailMoveLearnMethod,
-  version_group: PokeCardMoveVersionGroupDetailVersionGroup
+  move_learn_method: PokeDetailMoveVersionGroupDetailMoveLearnMethod,
+  version_group: PokeDetailMoveVersionGroupDetailVersionGroup
 }
 
-export type PokeCardMoveVersionGroupDetailMoveLearnMethod = {
+export type PokeDetailMoveVersionGroupDetailMoveLearnMethod = {
   name: string,
   url: string
 }
 
-export type PokeCardMoveVersionGroupDetailVersionGroup = {
+export type PokeDetailMoveVersionGroupDetailVersionGroup = {
   name: string,
   url: string
 }
 
-export type PokeCardSpecies = {
+export type PokeDetailSpecies = {
   name: string,
   url: string,
 }
 
-export type PokeCardSprites = {
+export type PokeDetailSprites = {
   back_default: string,
   back_female: string,
   back_shiny: string,
@@ -114,23 +111,23 @@ export type PokeCardSprites = {
   front_shiny_female: string
 }
 
-export type PokeCardStat = {
+export type PokeDetailStat = {
   base_stat: number,
   effort: number,
-  stat: PokeCardNestedStat
+  stat: PokeDetailNestedStat
 }
 
-export type PokeCardNestedStat = {
+export type PokeDetailNestedStat = {
   name: string,
   url: string
 }
 
-export type PokeCardType = {
+export type PokeDetailType = {
   slot: number,
-  type: PokeCardNestedType
+  type: PokeDetailNestedType
 }
 
-export type PokeCardNestedType = {
+export type PokeDetailNestedType = {
   name: string,
   url: string
 }

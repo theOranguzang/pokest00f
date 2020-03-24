@@ -7,11 +7,13 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { PokelistComponent } from './pokelist/pokelist.component';
+import { PokecardComponent } from './pokecard/pokecard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PokelistComponent
+    PokelistComponent,
+    PokecardComponent
   ],
   imports: [
     BrowserModule,
